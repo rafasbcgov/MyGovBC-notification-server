@@ -152,6 +152,7 @@ module.exports = function (Model, options) {
   }
 
   Model.mailMerge = function (srcTxt, data, httpCtx) {
+    console.log(data)
     let output = srcTxt
     try {
       output = output.replace(
@@ -201,6 +202,15 @@ module.exports = function (Model, options) {
     } catch (ex) {}
     try {
       output = output.replace(/\{subscription_id\}/gi, data.id)
+    } catch (ex) {}
+    try {
+      output = output.replace(/\{firstname\}/gi, data.firstname)
+    } catch (ex) {}
+    try {
+      output = output.replace(/\{workbccentre\}/gi, data.workbccentre)
+    } catch (ex) {}
+    try {
+      output = output.replace(/\{contactemail\}/gi, data.userChannelId)
     } catch (ex) {}
     try {
       output = output.replace(
