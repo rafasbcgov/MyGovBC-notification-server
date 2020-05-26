@@ -152,7 +152,6 @@ module.exports = function (Model, options) {
   }
 
   Model.mailMerge = function (srcTxt, data, httpCtx) {
-    console.log(data)
     let output = srcTxt
     try {
       output = output.replace(
