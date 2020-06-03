@@ -206,6 +206,9 @@ module.exports = function (Model, options) {
       output = output.replace(/\{firstname\}/gi, data.firstname)
     } catch (ex) {}
     try {
+      output = output.replace(/\{lastname\}/gi, data.lastname)
+    } catch (ex) {}
+    try {
       output = output.replace(/\{workbccentre\}/gi, data.workbccentre)
     } catch (ex) {}
     try {
