@@ -212,6 +212,9 @@ module.exports = function (Model, options) {
       output = output.replace(/\{workbccentre\}/gi, data.workbccentre)
     } catch (ex) {}
     try {
+      output = output.replace(/\{campaign\}/gi, data.campaign)
+    } catch (ex) {}
+    try {
       output = output.replace(/\{contactemail\}/gi, data.userChannelId)
     } catch (ex) {}
     try {
