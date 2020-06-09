@@ -218,6 +218,12 @@ module.exports = function (Model, options) {
       output = output.replace(/\{contactemail\}/gi, data.userChannelId)
     } catch (ex) {}
     try {
+      output = output.replace(/\{catchment\}/gi, data.catchment)
+    } catch (ex) {}
+    try {
+      output = output.replace(/\{referral_wid\}/gi, data.REFERRAL_WID)
+    } catch (ex) {}
+    try {
       output = output.replace(
         /\{unsubscription_code\}/gi,
         data.unsubscriptionCode
