@@ -555,13 +555,15 @@ module.exports = function (Notification) {
                 function (errSave) {
                   if (typeof data.asyncBroadcastPushNotification === 'string') {
                     let options = {
-                      url: data.asyncBroadcastPushNotification,
                       headers: {
                         'Content-Type': 'application/json',
                       },
-                      data: data,
                     }
-                    Notification.request.post(options)
+                    Notification.request.post(
+                      data.asyncBroadcastPushNotification,
+                      data,
+                      options
+                    )
                   }
                 }
               )
@@ -608,10 +610,10 @@ module.exports = function (Notification) {
                     .get(uri)
                     .then(function (response) {
                       const body = response.data
-                      if (response.statusCode === 200) {
+                      if (response.status === 200) {
                         return cb && cb(null, body)
                       }
-                      throw new Error(statusCode)
+                      throw new Error(response.status)
                     })
                     .catch(function (error) {
                       Notification.app.models.Subscription.find(
